@@ -5,7 +5,7 @@ export const styles = createStyles({
       display: "flex",
       alignItems: "center",
       flexDirection: "column",
-      maxWidth: "1280px",
+      maxWidth: "320px",
       fontFamily: ' "Inter", Arial, sans-serif',
       boxSizing: "border-box",
       WebkitFontSmoothing: "antialiased",
@@ -14,5 +14,10 @@ export const styles = createStyles({
       MozTextSizeAdjust: "100%",
       minHeight: "100vh",
       margin: "0 auto",
+   },
+   conteiner: {
+      border: "0.5px solid red",
+      width: "100%",
+      textAlign: "center",
    },
 });

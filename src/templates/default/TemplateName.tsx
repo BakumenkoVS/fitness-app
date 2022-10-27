@@ -4,9 +4,9 @@ import { styles } from "./TemplateName.styles";
 
 const TemplateName: FC<TemplateNameProps> = () => {
    return (
-      <>
+      <div css={styles.box}>
          <div>TemplateName</div>
-      </>
+      </div>
    );
 };
 
