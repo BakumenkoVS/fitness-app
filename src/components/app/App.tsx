@@ -1,13 +1,14 @@
 import "./App.styles.ts";
 import { styles } from "./App.styles";
-import Header from "../Header/Header";
-import Promo from '../Promo/Promo';
+import Main from "../Main/Main";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
    return (
       <div css={styles.box}>
-         <Header />
-         <Promo />
+         <Routes>
+            <Route path="/" element={<Main />} />
+         </Routes>
       </div>
    );
 }
