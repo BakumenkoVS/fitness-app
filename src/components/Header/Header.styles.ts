@@ -13,4 +13,10 @@ export const styles = createStyles({
       height: "20px",
       cursor: "pointer",
    },
+   button: {
+      border: "1px",
+      backgroundColor: "red",
+      borderRadius: "5px",
+      textDecoration: "none",
+   },
 });
