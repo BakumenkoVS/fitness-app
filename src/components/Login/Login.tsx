@@ -3,23 +3,15 @@ import { LoginProps } from "./types";
 import { styles } from "./Login.styles";
 import Input from "../../ui-kit/Input/Input";
 import { useInput } from "../../ui-kit/Input/Input";
+import { error } from "console";
 
 const Login: FC<LoginProps> = () => {
-   const email = useInput("", { isEmpty: true, minLength: 3, isEmail: true });
+   const email = useInput("", { isEmail: true });
    const password = useInput("", { isEmpty: true, minLength: 5, maxLength: 7 });
    return (
       <div css={styles.box}>
          <h2 css={styles.title}>Рады вдеть</h2>
          <form css={styles.inputForm}>
-            {email.isDirty && email.isEmpty && (
-               <div style={{ color: "red" }}>Ошибка валидации</div>
-            )}
-            {email.isDirty && email.minLengthError && (
-               <div style={{ color: "red" }}>Малое количество символов</div>
-            )}
-            {email.isDirty && email.isEmail && (
-               <div style={{ color: "red" }}>Некорректный Email</div>
-            )}
             <Input
                onChange={(e) => email.onChange(e)}
                onBlur={(e) => email.onBlur(e)}
@@ -29,14 +21,8 @@ const Login: FC<LoginProps> = () => {
                maxLength={40}
                minLength={3}
             />
-            {password.isDirty && password.isEmpty && (
-               <div style={{ color: "red" }}>Ошибка валидации</div>
-            )}
-            {password.isDirty && password.minLengthError && (
-               <div style={{ color: "red" }}>Малое количество символов</div>
-            )}
-            {password.isDirty && password.maxLengthError && (
-               <div style={{ color: "red" }}>Большое количество символов</div>
+            {email.isDirty && email.error && (
+               <span css={styles.error}>{email.error}</span>
             )}
 
             <Input
@@ -48,8 +34,12 @@ const Login: FC<LoginProps> = () => {
                maxLength={40}
                minLength={6}
             />
+            {password.isDirty && password.error && (
+               <div css={styles.error}>{password.error}</div>
+            )}
+
             <button
-               disabled={!email.inputValid || !password.inputValid}
+               disabled={email.inputValid && password.inputValid}
                type="submit"
                css={styles.submitButton}
             >

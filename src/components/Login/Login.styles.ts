@@ -32,4 +32,14 @@ export const styles = createStyles({
          backgroundColor: "gray",
       },
    },
+   error: {
+      fontWeight: "400",
+      fontSize: "10px",
+      lineHeight: "12px",
+      color: "#ff4062",
+      display: "block",
+      position: "absolute",
+      padding: "6px 0 6px",
+      marginBottom: "10px",
+   },
 });
